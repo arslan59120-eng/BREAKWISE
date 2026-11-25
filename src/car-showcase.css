@@ -1,0 +1,492 @@
+
+/* =========================================
+   BRAKEWISE — INTERACTIVE CAR SHOWCASE
+========================================= */
+
+.bw-car-section {
+    padding: 110px 6%;
+    background:
+        radial-gradient(
+            ellipse at 50% 40%,
+            rgba(255, 107, 44, 0.07),
+            transparent 60%
+        ),
+        #101318;
+    color: #f2f3f5;
+}
+
+.bw-section-heading {
+    max-width: 750px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.bw-eyebrow {
+    color: #ff6b2c;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.bw-section-heading h2 {
+    margin: 18px 0;
+    font-size: clamp(34px, 5vw, 62px);
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.bw-section-heading h2 span {
+    color: #ff6b2c;
+}
+
+.bw-section-heading p {
+    max-width: 570px;
+    margin: auto;
+    color: #a0aab6;
+    line-height: 1.8;
+}
+
+
+/* MAIN LAYOUT */
+
+.bw-showcase-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(300px, 0.8fr);
+    gap: 22px;
+    max-width: 1450px;
+    margin: auto;
+}
+
+
+/* VIEWER */
+
+.bw-viewer-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 18px;
+    background: #151b24;
+    box-shadow: 0 25px 65px rgba(0,0,0,0.3);
+}
+
+.bw-viewer-card {
+    position: relative;
+    isolation: isolate;
+}
+
+.bw-viewer-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 107, 44, 0.16);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.bw-viewer-topbar,
+.bw-viewer-footer {
+    min-height: 58px;
+    padding: 0 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    color: #dce2e9;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.bw-live-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: #ff6b2c;
+    box-shadow: 0 0 12px #ff6b2c;
+}
+
+.bw-viewer-tag {
+    color: #ff895b;
+    font-size: 9px;
+}
+
+.bw-viewer-stage {
+    position: relative;
+    height: 510px;
+    overflow: hidden;
+    background:
+    radial-gradient(
+        ellipse at 50% 65%,
+        rgba(255, 107, 44, 0.22),
+        transparent 45%
+    ),
+    radial-gradient(
+        ellipse at 50% 100%,
+        rgba(0, 195, 230, 0.10),
+        transparent 55%
+    ),
+    linear-gradient(
+        145deg,
+        #263342,
+        #111720 72%
+    );
+}
+.bw-viewer-stage canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
+.bw-loading {
+    position: absolute;
+    z-index: 5;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    background: #171e28;
+    color: #dce2e9;
+    font-size: 13px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.bw-loader {
+    width: 36px;
+    height: 36px;
+    border: 3px solid rgba(255,255,255,0.12);
+    border-top-color: #ff6b2c;
+    border-radius: 50%;
+    animation: bwSpin 0.8s linear infinite;
+}
+
+@keyframes bwSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* HOTSPOTS */
+
+.bw-hotspots {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.bw-hotspot {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 50%;
+    background: #ff6b2c;
+    color: white;
+    font-size: 10px;
+    font-weight: 900;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow:
+        0 0 0 6px rgba(255,107,44,0.16),
+        0 0 24px rgba(255,107,44,0.45);
+    animation: bwPulse 2s infinite;
+}
+
+@keyframes bwPulse {
+    50% {
+        box-shadow:
+            0 0 0 11px rgba(255,107,44,0.04),
+            0 0 30px rgba(255,107,44,0.55);
+    }
+}
+
+.bw-hotspot:hover {
+    transform: scale(1.15);
+}
+
+.bw-viewer-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #c0c9d4;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    pointer-events: none;
+}
+
+.bw-viewer-hint span {
+    color: #ff6b2c;
+    font-size: 18px;
+    margin-right: 7px;
+}
+
+
+/* VIEWER FOOTER */
+
+.bw-viewer-footer {
+    min-height: 65px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 0;
+}
+
+.bw-viewer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.bw-viewer-actions button {
+    padding: 9px 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    background: #222c38;
+    color: #e5eaf0;
+    font-size: 9px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.bw-viewer-actions button:hover {
+    border-color: #ff6b2c;
+    color: #ff895b;
+}
+
+
+/* COMPONENT PANEL */
+
+.bw-component-panel {
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 18px;
+    background: linear-gradient(145deg, #1c2530, #151b24);
+}
+
+.bw-component-heading h3 {
+    margin: 10px 0;
+    font-size: 25px;
+}
+
+.bw-component-heading p {
+    color: #9ba6b2;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.bw-component-list {
+    display: grid;
+    gap: 9px;
+    margin: 25px 0;
+}
+
+.bw-component-option {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    width: 100%;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 9px;
+    background: #202934;
+    color: #fff;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.bw-component-option:hover,
+.bw-component-option.active {
+    border-color: rgba(255,107,44,0.7);
+    background: rgba(255,107,44,0.09);
+}
+
+.bw-component-option {
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.bw-component-option:hover {
+    transform: translateX(4px);
+}
+
+.bw-component-option.active {
+    box-shadow: 0 0 18px rgba(255, 107, 44, 0.08);
+}
+
+.bw-component-number {
+    color: #ff814e;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.bw-component-option-text {
+    display: grid;
+    gap: 5px;
+    flex: 1;
+}
+
+.bw-component-option-text strong {
+    font-size: 12px;
+}
+
+.bw-component-option-text small {
+    color: #929eab;
+    font-size: 10px;
+}
+
+.bw-component-arrow {
+    color: #ff814e;
+}
+
+
+/* DETAILS */
+
+.bw-component-detail {
+    padding: 20px;
+    border-radius: 12px;
+    background: #111821;
+    border: 1px solid rgba(255,107,44,0.16);
+}
+
+.bw-detail-label,
+.bw-function-box span,
+.bw-location-box span {
+    color: #ff895b;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.bw-component-detail h3 {
+    margin: 13px 0;
+    font-size: 21px;
+}
+
+.bw-component-detail > p,
+.bw-function-box p,
+.bw-location-box p {
+    color: #a8b2be;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.bw-function-box,
+.bw-location-box {
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.bw-function-box p,
+.bw-location-box p {
+    margin-bottom: 0;
+}
+
+
+/* CREDIT */
+
+.bw-model-credit {
+    max-width: 1450px;
+    margin: 18px auto 0;
+    color: #788491;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.bw-model-credit a {
+    color: #ff895b;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+    .bw-showcase-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .bw-component-panel {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 20px;
+    }
+
+    .bw-component-list {
+        grid-column: 1;
+    }
+
+    .bw-component-detail {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .bw-car-section {
+        padding: 75px 5%;
+    }
+
+    .bw-viewer-stage {
+        height: 340px;
+    }
+
+    .bw-component-panel {
+        display: block;
+        padding: 18px;
+    }
+
+    .bw-viewer-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .bw-viewer-actions {
+        width: 100%;
+    }
+
+    .bw-viewer-actions button {
+        flex: 1;
+    }
+
+    .bw-hotspot {
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
+/* ACCESSIBILITY */
+
+.bw-viewer-actions button:focus-visible,
+.bw-component-option:focus-visible,
+.bw-hotspot:focus-visible {
+    outline: 2px solid #ff895b;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bw-hotspot {
+        animation: none;
+    }
+
+    .bw-component-option,
+    .bw-viewer-actions button {
+        transition: none;
+    }
+}

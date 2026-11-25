@@ -1,0 +1,2788 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#101318">
+
+    <meta name="description"
+        content="Explore Anti-lock Braking System technology through BRAKEWISE, an interactive automotive learning and driving simulator.">
+
+    <title>BRAKEWISE | ABS Driving Simulator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         SEPARATE GAME MODE SCREEN
+    ========================================== -->
+
+    <section id="gameModeScreen" class="game-mode-screen hidden">
+
+        <header class="game-mode-topbar">
+
+            <div class="logo">
+                BRAKE<span>WISE</span>
+            </div>
+
+            <div class="game-mode-title">
+                <span class="live-dot"></span>
+                LIVE DRIVING MODE
+            </div>
+
+            <button id="exitGameModeButton" class="game-icon-button">
+                ✕ EXIT GAME
+            </button>
+
+        </header>
+
+        <main class="game-mode-content">
+
+            <div id="gameHudSlot"></div>
+            <div id="gameRoadSlot"></div>
+            <div id="gameAbsSlot"></div>
+            <div id="gameControlsSlot"></div>
+
+        </main>
+
+    </section>
+
+
+    <!-- =========================================
+         HOME SCREEN
+    ========================================== -->
+
+    <section class="home-screen" id="homeScreen">
+
+        <!-- HOME NAVIGATION BAR -->
+
+        <header class="home-navbar">
+
+            <a href="#homeHero" class="home-nav-logo">
+                BRAKE<span>WISE</span>
+            </a>
+
+            <nav class="home-nav-links" aria-label="Main navigation">
+
+                <a href="#homeHero" class="home-nav-link active">
+                    HOME
+                </a>
+
+                <a href="#bw-car-showcase" class="home-nav-link">
+                    EXPLORE CAR
+                </a>
+
+                <a href="#homeAbout" class="home-nav-link">
+                    ABOUT
+                </a>
+
+                <a href="#homeHow" class="home-nav-link">
+                    HOW IT WORKS
+                </a>
+
+                <a href="#homeFeatures" class="home-nav-link">
+                    FEATURES
+                </a>
+
+            </nav>
+
+        </header>
+
+
+        <!-- =========================================
+             HOME MAIN CONTENT
+        ========================================== -->
+
+        <main>
+
+            <!-- =====================================
+                 HERO SECTION
+            ====================================== -->
+
+            <section class="hero-content" id="homeHero">
+
+                <div class="hero-text-content">
+
+                    <p class="eyebrow">
+                        INTERACTIVE AUTOMOTIVE TECHNOLOGY
+                    </p>
+
+                    <h1>
+                        Understand the Power<br>
+                        of <span>ABS Braking.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Explore how Anti-lock Braking Systems work
+                        through an interactive driving simulation.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="startButton"
+                        class="primary-button">
+
+                        START DEMONSTRATION →
+
+                    </button>
+
+                    <div class="hero-highlights">
+
+                        <span>01 / LEARN</span>
+                        <span>02 / EXPERIMENT</span>
+                        <span>03 / DISCOVER</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="hero-visual-glow"></div>
+
+                    <div class="hero-visual-content">
+
+                        <span class="hero-visual-label">
+                            BRAKING TECHNOLOGY
+                        </span>
+
+                        <div class="hero-abs-symbol">
+                            ABS
+                        </div>
+
+                        <h3>
+                            ANTI-LOCK BRAKING SYSTEM
+                        </h3>
+
+                        <p>
+                            Understanding the technology that helps
+                            maintain wheel rotation during braking.
+                        </p>
+
+                        <div class="hero-visual-line"></div>
+
+                        <div class="hero-visual-stats">
+
+                            <div>
+                                <strong>01</strong>
+                                <span>MONITOR</span>
+                            </div>
+
+                            <div>
+                                <strong>02</strong>
+                                <span>CONTROL</span>
+                            </div>
+
+                            <div>
+                                <strong>03</strong>
+                                <span>RESPOND</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 INTERACTIVE 3D CAR SHOWCASE
+            ====================================== -->
+
+            <section class="bw-car-section" id="bw-car-showcase">
+
+                <div class="bw-section-heading">
+
+                    <span class="bw-eyebrow">
+                        INTERACTIVE ENGINEERING
+                    </span>
+
+                    <h2>
+                        EXPLORE THE
+                        <span>TECHNOLOGY.</span>
+                    </h2>
+
+                    <p>
+                        Discover the engineering behind modern
+                        braking systems. Rotate the vehicle and
+                        explore its essential components.
+                    </p>
+
+                </div>
+
+
+                <div class="bw-showcase-layout">
+
+
+                    <!-- 3D CAR VIEWER -->
+
+                    <div class="bw-viewer-card">
+
+                        <div class="bw-viewer-topbar">
+
+                            <div>
+                                <span class="bw-live-dot"></span>
+                                3D VEHICLE EXPLORER
+                            </div>
+
+                            <span class="bw-viewer-tag">
+                                INTERACTIVE MODEL
+                            </span>
+
+                        </div>
+
+
+                        <!-- THREE.JS CANVAS WILL APPEAR HERE -->
+
+                        <div class="bw-viewer-stage" id="bw-car-viewer">
+
+                            <div class="bw-loading">
+
+                                <div class="bw-loader"></div>
+
+                                <p>
+                                    Loading 3D vehicle...
+                                </p>
+
+                            </div>
+
+
+                            <!-- COMPONENT HOTSPOTS -->
+
+                            <div class="bw-hotspots">
+
+                                <button
+                                    type="button"
+                                    class="bw-hotspot"
+                                    data-component="sensor"
+                                    style="left: 25%; top: 67%;"
+                                    aria-label="Explore wheel speed sensor">
+
+                                    01
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="bw-hotspot"
+                                    data-component="brakes"
+                                    style="left: 73%; top: 67%;"
+                                    aria-label="Explore brake disc and caliper">
+
+                                    02
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="bw-hotspot"
+                                    data-component="module"
+                                    style="left: 52%; top: 40%;"
+                                    aria-label="Explore ABS hydraulic module">
+
+                                    03
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="bw-hotspot"
+                                    data-component="ecu"
+                                    style="left: 43%; top: 51%;"
+                                    aria-label="Explore ABS control unit">
+
+                                    04
+
+                                </button>
+
+                            </div>
+
+
+                            <div class="bw-viewer-hint">
+
+                                <span>↔</span>
+                                DRAG TO ROTATE
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- VIEWER CONTROLS -->
+
+                        <div class="bw-viewer-footer">
+
+                            <span>
+                                HYPERCAR CONCEPT
+                            </span>
+
+                            <div class="bw-viewer-actions">
+
+                                <button
+                                    type="button"
+                                    id="bw-reset-view">
+
+                                    RESET VIEW
+
+                                </button>
+
+                                <button
+                                    type="button"
+                                    id="bw-auto-rotate">
+
+                                    AUTO ROTATE: ON
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- COMPONENT INFORMATION PANEL -->
+
+                    <aside class="bw-component-panel">
+
+
+                        <div class="bw-component-heading">
+
+                            <span class="bw-eyebrow">
+                                SYSTEM BREAKDOWN
+                            </span>
+
+                            <h3>
+                                Explore Components
+                            </h3>
+
+                            <p>
+                                Select a component to understand
+                                its role in the Anti-lock Braking System.
+                            </p>
+
+                        </div>
+
+
+                        <!-- COMPONENT SELECTION -->
+
+                        <div class="bw-component-list">
+
+
+                            <button
+                                type="button"
+                                class="bw-component-option active"
+                                data-component="sensor">
+
+                                <span class="bw-component-number">
+                                    01
+                                </span>
+
+                                <span class="bw-component-option-text">
+
+                                    <strong>
+                                        Wheel Speed Sensor
+                                    </strong>
+
+                                    <small>
+                                        Wheel monitoring
+                                    </small>
+
+                                </span>
+
+                                <span class="bw-component-arrow">
+                                    ↗
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="bw-component-option"
+                                data-component="brakes">
+
+                                <span class="bw-component-number">
+                                    02
+                                </span>
+
+                                <span class="bw-component-option-text">
+
+                                    <strong>
+                                        Brake Disc & Caliper
+                                    </strong>
+
+                                    <small>
+                                        Braking force
+                                    </small>
+
+                                </span>
+
+                                <span class="bw-component-arrow">
+                                    ↗
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="bw-component-option"
+                                data-component="module">
+
+                                <span class="bw-component-number">
+                                    03
+                                </span>
+
+                                <span class="bw-component-option-text">
+
+                                    <strong>
+                                        Hydraulic Module
+                                    </strong>
+
+                                    <small>
+                                        Pressure regulation
+                                    </small>
+
+                                </span>
+
+                                <span class="bw-component-arrow">
+                                    ↗
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="bw-component-option"
+                                data-component="ecu">
+
+                                <span class="bw-component-number">
+                                    04
+                                </span>
+
+                                <span class="bw-component-option-text">
+
+                                    <strong>
+                                        ABS Control Unit
+                                    </strong>
+
+                                    <small>
+                                        Electronic control
+                                    </small>
+
+                                </span>
+
+                                <span class="bw-component-arrow">
+                                    ↗
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- SELECTED COMPONENT DETAILS -->
+
+                        <div class="bw-component-detail">
+
+                            <span class="bw-detail-label">
+                                SELECTED COMPONENT
+                            </span>
+
+                            <h3 id="bw-component-name">
+                                Wheel Speed Sensor
+                            </h3>
+
+                            <p id="bw-component-description">
+                                Monitors the rotational speed of
+                                individual wheels and sends speed
+                                information to the ABS control unit.
+                            </p>
+
+
+                            <div class="bw-function-box">
+
+                                <span>
+                                    PRIMARY FUNCTION
+                                </span>
+
+                                <p id="bw-component-function">
+                                    Detects changes in wheel speed
+                                    to help identify possible wheel lockup.
+                                </p>
+
+                            </div>
+
+
+                            <div class="bw-location-box">
+
+                                <span>
+                                    LOCATION
+                                </span>
+
+                                <p id="bw-component-location">
+                                    Near each wheel, positioned
+                                    to read its rotation.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+
+                <!-- MODEL CREDIT -->
+
+                <p class="bw-model-credit">
+
+                    Vehicle model: Hypercar by drcollect / Collect Cars —
+
+                    <a
+                        href="https://github.com/drcollect/collect-cars"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        CC BY 4.0
+
+                    </a>.
+
+                    Component markers indicate approximate locations;
+                    internal ABS components are explained separately.
+
+                </p>
+
+            </section>
+
+
+            <!-- =====================================
+                 ABOUT SECTION
+            ====================================== -->
+
+            <section class="home-info-section" id="homeAbout">
+
+                <div class="home-section-heading">
+
+                    <p class="eyebrow">
+                        01 / ABOUT BRAKEWISE
+                    </p>
+
+                    <h2>
+                        Learn the technology<br>
+                        behind <span>modern braking.</span>
+                    </h2>
+
+                    <p>
+                        BRAKEWISE is an interactive educational
+                        experience designed to explain how an
+                        Anti-lock Braking System works.
+                    </p>
+
+                </div>
+
+
+                <div class="home-about-content">
+
+                    <div class="home-about-card">
+
+                        <span class="home-card-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Understand
+                        </h3>
+
+                        <p>
+                            Discover the purpose of ABS and learn
+                            about the components that make the
+                            system work.
+                        </p>
+
+                    </div>
+
+
+                    <div class="home-about-card">
+
+                        <span class="home-card-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Explore
+                        </h3>
+
+                        <p>
+                            Observe how wheel sensors, the control
+                            module, and the hydraulic modulator
+                            work together.
+                        </p>
+
+                    </div>
+
+
+                    <div class="home-about-card">
+
+                        <span class="home-card-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Experiment
+                        </h3>
+
+                        <p>
+                            Use the simulator to explore braking
+                            behaviour with ABS enabled and disabled.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 HOW IT WORKS SECTION
+            ====================================== -->
+
+            <section
+                class="home-info-section home-how-section"
+                id="homeHow">
+
+                <div class="home-section-heading">
+
+                    <p class="eyebrow">
+                        02 / THE TECHNOLOGY
+                    </p>
+
+                    <h2>
+                        How does <span>ABS work?</span>
+                    </h2>
+
+                    <p>
+                        ABS monitors wheel behaviour and can adjust
+                        braking pressure when it detects a risk
+                        of wheel lock.
+                    </p>
+
+                </div>
+
+
+                <div class="home-process-grid">
+
+
+                    <div class="home-process-card">
+
+                        <span class="home-process-number">
+                            01
+                        </span>
+
+                        <div class="home-process-symbol">
+                            ◉
+                        </div>
+
+                        <h3>
+                            Detect
+                        </h3>
+
+                        <p>
+                            Wheel speed sensors monitor wheel
+                            rotation and provide information
+                            to the ABS control module.
+                        </p>
+
+                    </div>
+
+
+                    <div class="home-process-card">
+
+                        <span class="home-process-number">
+                            02
+                        </span>
+
+                        <div class="home-process-symbol">
+                            ▣
+                        </div>
+
+                        <h3>
+                            Process
+                        </h3>
+
+                        <p>
+                            The control module processes the
+                            information and determines whether
+                            braking pressure needs adjustment.
+                        </p>
+
+                    </div>
+
+
+                    <div class="home-process-card">
+
+                        <span class="home-process-number">
+                            03
+                        </span>
+
+                        <div class="home-process-symbol">
+                            ⚙
+                        </div>
+
+                        <h3>
+                            Regulate
+                        </h3>
+
+                        <p>
+                            The hydraulic modulator adjusts
+                            brake pressure to help reduce
+                            the chance of wheel lock.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="home-process-note">
+
+                    <strong>
+                        THE ABS CYCLE
+                    </strong>
+
+                    <span>RELEASE</span>
+                    <span>→</span>
+                    <span>HOLD</span>
+                    <span>→</span>
+                    <span>BUILD</span>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 FEATURES SECTION
+            ====================================== -->
+
+            <section class="home-info-section" id="homeFeatures">
+
+                <div class="home-section-heading">
+
+                    <p class="eyebrow">
+                        03 / SIMULATOR FEATURES
+                    </p>
+
+                    <h2>
+                        Go beyond theory.<br>
+                        <span>Experience the system.</span>
+                    </h2>
+
+                    <p>
+                        Explore ABS behaviour through an interactive
+                        driving environment and educational tools.
+                    </p>
+
+                </div>
+
+
+                <div class="home-features-grid">
+
+
+                    <div class="home-feature-card">
+
+                        <span class="home-feature-icon">
+                            ↗
+                        </span>
+
+                        <h3>
+                            Driving Simulation
+                        </h3>
+
+                        <p>
+                            Control a simulated vehicle using
+                            accelerator and brake controls.
+                        </p>
+
+                    </div>
+
+
+                    <div class="home-feature-card">
+
+                        <span class="home-feature-icon">
+                            ◉
+                        </span>
+
+                        <h3>
+                            Live Dashboard
+                        </h3>
+
+                        <p>
+                            Observe vehicle speed, brake pressure,
+                            wheel slip, and distance.
+                        </p>
+
+                    </div>
+
+
+                    <div class="home-feature-card">
+
+                        <span class="home-feature-icon">
+                            ⚙
+                        </span>
+
+                        <h3>
+                            ABS Monitoring
+                        </h3>
+
+                        <p>
+                            Watch the simulated ABS components
+                            respond during braking.
+                        </p>
+
+                    </div>
+
+
+                    <div class="home-feature-card">
+
+                        <span class="home-feature-icon">
+                            ⇄
+                        </span>
+
+                        <h3>
+                            Performance Comparison
+                        </h3>
+
+                        <p>
+                            Compare the results of simulated
+                            braking tests with ABS on and off.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REACT-POWERED INTERACTIVE LEARNING WIDGET -->
+
+                <div id="react-learning-root"></div>
+
+            </section>
+
+
+            <!-- =====================================
+                 FINAL CALL TO ACTION
+            ====================================== -->
+
+            <section class="home-cta-section">
+
+                <p class="eyebrow">
+                    READY TO BEGIN?
+                </p>
+
+                <h2>
+                    Discover the science<br>
+                    of <span>ABS braking.</span>
+                </h2>
+
+                <p>
+                    Start with a short learning experience,
+                    then enter the interactive driving simulator.
+                </p>
+
+                <button
+                    type="button"
+                    class="primary-button">
+
+                    START YOUR EXPERIENCE →
+
+                </button>
+
+            </section>
+
+        </main>
+
+
+        <!-- =====================================
+             HOME FOOTER
+        ====================================== -->
+
+        <footer class="home-footer">
+
+            <div class="logo">
+                BRAKE<span>WISE</span>
+            </div>
+
+            <p>
+                An interactive exploration of Anti-lock
+                Braking System technology.
+            </p>
+
+            <span class="footer-copyright">
+                © 2026 BRAKEWISE
+            </span>
+
+        </footer>
+
+    </section>
+
+
+    <!-- =========================================
+         ABS TUTORIAL SCREEN
+    ========================================== -->
+
+    <section id="tutorialScreen" class="tutorial-screen hidden">
+
+        <header class="tutorial-topbar">
+
+            <div class="logo">
+                BRAKE<span>WISE</span>
+            </div>
+
+            <div class="tutorial-label">
+                <span class="live-dot"></span>
+                ABS LEARNING CENTER
+            </div>
+
+        </header>
+
+
+        <main class="tutorial-container">
+
+            <div class="tutorial-heading">
+
+                <p class="eyebrow">
+                    BEFORE YOU DRIVE
+                </p>
+
+                <h1>
+                    Understand <span>ABS Technology.</span>
+                </h1>
+
+                <p>
+                    Learn the technology behind your vehicle's
+                    Anti-lock Braking System before experiencing
+                    it in our interactive simulator.
+                </p>
+
+            </div>
+
+
+            <!-- PROGRESS INDICATOR -->
+
+            <div class="tutorial-progress-area">
+
+                <div class="tutorial-progress-info">
+
+                    <span>
+                        YOUR LEARNING JOURNEY
+                    </span>
+
+                    <strong id="tutorialPageIndicator">
+                        PAGE 1 OF 5
+                    </strong>
+
+                </div>
+
+
+                <div class="tutorial-progress-track">
+
+                    <div id="tutorialProgressFill"></div>
+
+                </div>
+
+
+                <div class="tutorial-progress-dots">
+
+                    <span class="tutorial-dot active" data-page="1"></span>
+                    <span class="tutorial-dot" data-page="2"></span>
+                    <span class="tutorial-dot" data-page="3"></span>
+                    <span class="tutorial-dot" data-page="4"></span>
+                    <span class="tutorial-dot" data-page="5"></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- TUTORIAL CONTENT -->
+
+            <div class="tutorial-content">
+
+
+                <!-- PAGE 1 -->
+
+                <article class="tutorial-page active" id="tutorialPage1">
+
+                    <div class="tutorial-page-number">
+                        01 / INTRODUCTION
+                    </div>
+
+                    <h2>
+                        What is <span>ABS?</span>
+                    </h2>
+
+                    <p class="tutorial-description">
+                        ABS stands for Anti-lock Braking System.
+                        It is a safety technology designed to help
+                        prevent a vehicle's wheels from locking
+                        during hard braking.
+                    </p>
+
+
+                    <div class="tutorial-visual tutorial-abs-visual">
+
+                        <div class="tutorial-visual-icon">
+                            <span>ABS</span>
+                        </div>
+
+                        <div class="tutorial-visual-text">
+
+                            <strong>
+                                ANTI-LOCK BRAKING SYSTEM
+                            </strong>
+
+                            <p>
+                                Helps maintain wheel rotation and
+                                supports steering control during
+                                hard braking.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="tutorial-fact-grid">
+
+                        <div class="tutorial-fact">
+
+                            <span>01</span>
+
+                            <strong>
+                                Prevents wheel lock
+                            </strong>
+
+                            <p>
+                                Helps stop wheels from completely
+                                locking during hard braking.
+                            </p>
+
+                        </div>
+
+
+                        <div class="tutorial-fact">
+
+                            <span>02</span>
+
+                            <strong>
+                                Supports steering
+                            </strong>
+
+                            <p>
+                                Helps drivers maintain steering
+                                control while braking.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="tutorial-highlight">
+
+                        <strong>KEY IDEA</strong>
+
+                        ABS does not simply make brakes stronger.
+                        It helps regulate braking pressure to
+                        prevent wheel lock.
+
+                    </div>
+
+                </article>
+
+
+                <!-- PAGE 2 -->
+
+                <article class="tutorial-page" id="tutorialPage2">
+
+                    <div class="tutorial-page-number">
+                        02 / THE BASICS
+                    </div>
+
+                    <h2>
+                        How Does <span>Braking Work?</span>
+                    </h2>
+
+                    <p class="tutorial-description">
+                        When you press the brake pedal, the braking
+                        system applies force to the wheels.
+                        Friction helps slow down the vehicle.
+                    </p>
+
+
+                    <div class="tutorial-visual braking-visual">
+
+
+                        <div class="braking-step">
+
+                            <div class="braking-step-icon">
+                                ①
+                            </div>
+
+                            <strong>
+                                Brake Pedal
+                            </strong>
+
+                            <p>
+                                The driver presses the brake pedal.
+                            </p>
+
+                        </div>
+
+
+                        <div class="tutorial-flow-arrow">
+                            →
+                        </div>
+
+
+                        <div class="braking-step">
+
+                            <div class="braking-step-icon">
+                                ②
+                            </div>
+
+                            <strong>
+                                Brake Pressure
+                            </strong>
+
+                            <p>
+                                Hydraulic pressure activates
+                                the braking mechanism.
+                            </p>
+
+                        </div>
+
+
+                        <div class="tutorial-flow-arrow">
+                            →
+                        </div>
+
+
+                        <div class="braking-step">
+
+                            <div class="braking-step-icon">
+                                ③
+                            </div>
+
+                            <strong>
+                                Wheel Slows
+                            </strong>
+
+                            <p>
+                                Friction helps reduce wheel
+                                rotation and vehicle speed.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="tutorial-section-block">
+
+                        <h3>
+                            What happens when a wheel locks?
+                        </h3>
+
+                        <p>
+                            If a wheel stops rotating while the
+                            vehicle is still moving, it can lose
+                            some of its ability to respond to
+                            steering inputs.
+                        </p>
+
+                    </div>
+
+
+                    <div class="tutorial-highlight">
+
+                        <strong>WHY ABS MATTERS</strong>
+
+                        ABS helps reduce the chance of wheel lock
+                        by adjusting brake pressure automatically.
+
+                    </div>
+
+                </article>
+
+
+                <!-- PAGE 3 -->
+
+                <article class="tutorial-page" id="tutorialPage3">
+
+                    <div class="tutorial-page-number">
+                        03 / INSIDE THE SYSTEM
+                    </div>
+
+                    <h2>
+                        Main <span>ABS Components.</span>
+                    </h2>
+
+                    <p class="tutorial-description">
+                        ABS uses several connected components.
+                        Each one has a specific job in monitoring
+                        and controlling the braking process.
+                    </p>
+
+
+                    <div class="tutorial-components">
+
+
+                        <div class="tutorial-component-card">
+
+                            <div class="tutorial-component-number">
+                                01
+                            </div>
+
+                            <div class="tutorial-component-symbol">
+                                ◉
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Wheel Speed Sensors
+                                </h3>
+
+                                <p>
+                                    Monitor how fast each wheel
+                                    is rotating and send information
+                                    to the ABS control module.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="tutorial-component-card">
+
+                            <div class="tutorial-component-number">
+                                02
+                            </div>
+
+                            <div class="tutorial-component-symbol">
+                                ▣
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    ABS Control Module
+                                </h3>
+
+                                <p>
+                                    Processes wheel-speed information
+                                    and determines when braking
+                                    pressure needs adjustment.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="tutorial-component-card">
+
+                            <div class="tutorial-component-number">
+                                03
+                            </div>
+
+                            <div class="tutorial-component-symbol">
+                                ⚙
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Hydraulic Modulator
+                                </h3>
+
+                                <p>
+                                    Controls hydraulic brake pressure
+                                    based on instructions from the
+                                    ABS control module.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="tutorial-component-card">
+
+                            <div class="tutorial-component-number">
+                                04
+                            </div>
+
+                            <div class="tutorial-component-symbol">
+                                ◉
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Brake Caliper & Rotor
+                                </h3>
+
+                                <p>
+                                    Create friction at the wheel
+                                    to help slow down the vehicle.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="tutorial-highlight">
+
+                        <strong>REMEMBER</strong>
+
+                        These components work together to monitor
+                        wheel rotation and regulate braking pressure.
+
+                    </div>
+
+                </article>
+
+
+                <!-- PAGE 4 -->
+
+                <article class="tutorial-page" id="tutorialPage4">
+
+                    <div class="tutorial-page-number">
+                        04 / THE TECHNOLOGY
+                    </div>
+
+                    <h2>
+                        How Does <span>ABS Work?</span>
+                    </h2>
+
+                    <p class="tutorial-description">
+                        When the system detects that a wheel may
+                        lock, it can rapidly adjust brake pressure
+                        through three main stages.
+                    </p>
+
+
+                    <div class="tutorial-abs-cycle">
+
+
+                        <div class="abs-cycle-card release-card">
+
+                            <div class="abs-cycle-number">
+                                01
+                            </div>
+
+                            <div class="abs-cycle-symbol">
+                                ↓
+                            </div>
+
+                            <h3>
+                                RELEASE
+                            </h3>
+
+                            <p>
+                                Brake pressure is reduced to help
+                                the wheel regain rotation.
+                            </p>
+
+                        </div>
+
+
+                        <div class="abs-cycle-card hold-card">
+
+                            <div class="abs-cycle-number">
+                                02
+                            </div>
+
+                            <div class="abs-cycle-symbol">
+                                Ⅱ
+                            </div>
+
+                            <h3>
+                                HOLD
+                            </h3>
+
+                            <p>
+                                Brake pressure is maintained
+                                while the system monitors the wheel.
+                            </p>
+
+                        </div>
+
+
+                        <div class="abs-cycle-card build-card">
+
+                            <div class="abs-cycle-number">
+                                03
+                            </div>
+
+                            <div class="abs-cycle-symbol">
+                                ↑
+                            </div>
+
+                            <h3>
+                                BUILD
+                            </h3>
+
+                            <p>
+                                Brake pressure is increased again
+                                when conditions allow.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="tutorial-section-block">
+
+                        <h3>
+                            A continuous process
+                        </h3>
+
+                        <p>
+                            These stages can repeat very quickly
+                            while ABS is active. The system keeps
+                            monitoring wheel behaviour and adjusting
+                            braking pressure as needed.
+                        </p>
+
+                    </div>
+
+
+                    <div class="tutorial-highlight">
+
+                        <strong>IMPORTANT</strong>
+
+                        The release, hold, and build stages help
+                        regulate braking pressure to reduce wheel
+                        lock during hard braking.
+
+                    </div>
+
+                </article>
+
+
+                <!-- PAGE 5 -->
+
+                <article class="tutorial-page" id="tutorialPage5">
+
+                    <div class="tutorial-page-number">
+                        05 / YOUR EXPERIMENT
+                    </div>
+
+                    <h2>
+                        Now It's Time to <span>Experience ABS.</span>
+                    </h2>
+
+                    <p class="tutorial-description">
+                        You have learned the basics. Now explore
+                        how ABS responds during a simulated drive
+                        and compare its behaviour with ABS enabled
+                        and disabled.
+                    </p>
+
+
+                    <div class="tutorial-demo-card">
+
+                        <div class="tutorial-demo-icon">
+                            <span>↗</span>
+                        </div>
+
+                        <div>
+
+                            <span class="tutorial-demo-label">
+                                INTERACTIVE EXPERIENCE
+                            </span>
+
+                            <h3>
+                                Driving Demonstration
+                            </h3>
+
+                            <p>
+                                Control a simulated vehicle using
+                                the accelerator and brake controls.
+                                Observe speed, brake pressure,
+                                wheel slip, and ABS activity.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="tutorial-demo-features">
+
+
+                        <div class="tutorial-demo-feature">
+
+                            <span>01</span>
+
+                            <div>
+
+                                <strong>
+                                    Drive the vehicle
+                                </strong>
+
+                                <p>
+                                    Use the controls to accelerate
+                                    and apply the brakes.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="tutorial-demo-feature">
+
+                            <span>02</span>
+
+                            <div>
+
+                                <strong>
+                                    Observe ABS activity
+                                </strong>
+
+                                <p>
+                                    Watch the system components
+                                    respond during braking.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="tutorial-demo-feature">
+
+                            <span>03</span>
+
+                            <div>
+
+                                <strong>
+                                    Compare both tests
+                                </strong>
+
+                                <p>
+                                    Run experiments with ABS
+                                    enabled and disabled and
+                                    compare the results.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="tutorial-highlight final-tutorial-highlight">
+
+                        <strong>YOU'RE READY!</strong>
+
+                        Complete the demonstration to explore
+                        how Anti-lock Braking Systems work.
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- TUTORIAL NAVIGATION -->
+
+            <div class="tutorial-navigation">
+
+                <button
+                    type="button"
+                    id="tutorialPrevButton"
+                    class="tutorial-nav-button previous-button"
+                    disabled>
+
+                    ← PREVIOUS
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="tutorialNextButton"
+                    class="tutorial-nav-button next-button">
+
+                    NEXT →
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="tutorialDoneButton"
+                    class="tutorial-nav-button done-button hidden">
+
+                    DONE ✓
+
+                </button>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <!-- =========================================
+         DRIVING LAB
+    ========================================== -->
+
+    <section class="lab-screen hidden" id="labScreen">
+
+
+        <!-- TOP BAR -->
+
+        <header class="game-topbar">
+
+            <div class="game-brand">
+
+                <div class="logo">
+                    BRAKE<span>WISE</span>
+                </div>
+
+                <div class="game-mode">
+
+                    <span class="live-dot"></span>
+                    ABS TEST TRACK
+
+                </div>
+
+            </div>
+
+
+            <div class="game-top-actions">
+
+                <div class="system-status" id="driveState">
+                    SYSTEM READY
+                </div>
+
+                <button
+                    id="fullscreenButton"
+                    class="game-icon-button">
+
+                    ⛶ GAME MODE (F)
+
+                </button>
+
+                <button
+                    id="backButton"
+                    class="game-icon-button">
+
+                    ✕ EXIT
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- MAIN GAME AREA -->
+
+        <main class="game-layout">
+
+            <section class="game-main">
+
+                <div id="gameHudHome"></div>
+
+
+                <!-- LIVE DASHBOARD -->
+
+                <div class="game-hud">
+
+
+                    <div class="hud-card speed-hud">
+
+                        <span class="hud-label">
+                            VEHICLE SPEED
+                        </span>
+
+                        <div class="hud-value">
+
+                            <strong id="speedValue">0</strong>
+                            <small>KM/H</small>
+
+                        </div>
+
+                        <div class="hud-meter">
+                            <div id="speedMeter"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="hud-card">
+
+                        <span class="hud-label">
+                            BRAKE PRESSURE
+                        </span>
+
+                        <div class="hud-value">
+
+                            <strong id="pressureValue">0</strong>
+                            <small>%</small>
+
+                        </div>
+
+                        <div class="hud-meter orange-meter">
+                            <div id="pressureMeter"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="hud-card">
+
+                        <span class="hud-label">
+                            WHEEL SLIP
+                        </span>
+
+                        <div class="hud-value">
+
+                            <strong id="slipValue">0</strong>
+                            <small>%</small>
+
+                        </div>
+
+                        <div class="hud-meter">
+                            <div id="slipMeter"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="hud-card">
+
+                        <span class="hud-label">
+                            DISTANCE
+                        </span>
+
+                        <div class="hud-value">
+
+                            <strong id="distanceValue">0</strong>
+                            <small>M</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div id="gameRoadHome"></div>
+
+
+                <!-- DRIVING SCENE -->
+
+                <section class="game-scene-panel">
+
+                    <div class="scene-header">
+
+                        <div>
+                            <span class="scene-indicator"></span>
+                            LIVE DRIVING VIEW
+                        </div>
+
+                        <span class="scene-tag">
+                            TEST TRACK 01
+                        </span>
+
+                    </div>
+
+
+                    <canvas
+                        id="roadCanvas"
+                        width="1000"
+                        height="430">
+                    </canvas>
+                    
+                    <div id="bw-driving-viewer">
+                        <div class="bw-driving-loading">
+                            <div class="bw-loader"></div>
+                            <p>INITIALIZING 3D DRIVING ENVIRONMENT</p>
+                        </div>
+                    </div>
+
+
+                    <div class="scene-footer">
+
+                        <span>
+                            ENVIRONMENT:
+                            <strong>TEST TRACK</strong>
+                        </span>
+
+                        <span>
+                            CAMERA:
+                            <strong>SIDE VIEW</strong>
+                        </span>
+
+                    </div>
+
+                </section>
+
+
+                <div id="gameControlsHome"></div>
+
+
+                <!-- DRIVING CONTROLS -->
+
+                <section class="game-controls">
+
+
+                    <!-- ACCELERATOR -->
+
+                    <div class="game-control-panel">
+
+                        <div class="game-control-heading">
+
+                            <div>
+                                <span class="control-icon">⚡</span>
+                                <strong>ACCELERATOR</strong>
+                            </div>
+
+                            <span id="throttleReadout">0%</span>
+
+                        </div>
+
+
+                        <input
+                            type="range"
+                            id="throttle"
+                            min="0"
+                            max="100"
+                            value="0">
+
+
+                        <div class="slider-wrapper">
+
+                            <div class="slider-markers">
+
+                                <div class="slider-marker">
+                                    <span class="dot"></span>
+                                    <span>25%</span>
+                                </div>
+
+                                <div class="slider-marker">
+                                    <span class="dot"></span>
+                                    <span>50%</span>
+                                </div>
+
+                                <div class="slider-marker">
+                                    <span class="dot"></span>
+                                    <span>75%</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="game-pedal accelerator-pedal"
+                            id="gameAccelerate">
+
+                            <span>▲</span>
+                            ACCELERATE
+
+                        </button>
+
+
+                        <div class="key-hint">
+                            KEYBOARD: W / ↑
+                        </div>
+
+                    </div>
+
+
+                    <!-- BRAKE -->
+
+                    <div class="game-control-panel">
+
+                        <div class="game-control-heading">
+
+                            <div>
+                                <span class="control-icon brake-icon">●</span>
+                                <strong>BRAKE</strong>
+                            </div>
+
+                            <span id="brakeReadout">0%</span>
+
+                        </div>
+
+
+                        <input
+                            type="range"
+                            id="brake"
+                            min="0"
+                            max="100"
+                            value="0">
+
+
+                        <div class="slider-wrapper">
+
+                            <div class="slider-markers">
+
+                                <div class="slider-marker">
+                                    <span class="dot"></span>
+                                    <span>25%</span>
+                                </div>
+
+                                <div class="slider-marker">
+                                    <span class="dot"></span>
+                                    <span>50%</span>
+                                </div>
+
+                                <div class="slider-marker">
+                                    <span class="dot"></span>
+                                    <span>75%</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="game-pedal brake-pedal"
+                            id="gameBrake">
+
+                            <span>▼</span>
+                            APPLY BRAKES
+
+                        </button>
+
+
+                        <div class="key-hint">
+    KEYBOARD: S / ↓
+</div>
+
+</div>
+
+<button
+    id="driveResultsToggle"
+    class="drive-results-toggle"
+    type="button">
+
+    DRIVE RESULTS: ON
+
+</button>
+
+</section>
+
+
+                <div id="gameAbsHome"></div>
+
+
+                <!-- ABS CONTROL -->
+
+                <section class="game-settings">
+
+                    <div class="abs-game-control">
+
+                        <div>
+
+                            <span class="abs-small-label">
+                                BRAKING ASSIST
+                            </span>
+
+                            <strong>
+                                ANTI-LOCK BRAKING SYSTEM
+                            </strong>
+
+                            <div
+                                id="absStatusText"
+                                class="abs-status-text">
+
+                                ABS ENABLED
+
+                            </div>
+
+                        </div>
+
+
+                        <label class="toggle-switch">
+
+                            <input
+                                type="checkbox"
+                                id="absToggle"
+                                checked>
+
+                            <span class="toggle-slider"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="game-action-buttons">
+
+                        <span class="key-hint">
+                            X = TOGGLE ABS
+                        </span>
+
+                        <button
+                            id="resetDrive"
+                            class="game-reset-button">
+
+                            ↻ RESET
+
+                        </button>
+
+                        <span class="key-hint">
+                            R = RESET
+                        </span>
+
+                    </div>
+
+                </section>
+
+
+                <!-- KEYBOARD GUIDE -->
+
+                <section class="keyboard-guide">
+
+                    <div class="keyboard-guide-title">
+                        KEYBOARD CONTROLS
+                    </div>
+
+
+                    <div class="keyboard-keys">
+
+                        <div class="key-item">
+                            <kbd>W</kbd>
+                            <span>Accelerate</span>
+                        </div>
+
+                        <div class="key-item">
+                            <kbd>S</kbd>
+                            <span>Brake</span>
+                        </div>
+
+                        <div class="key-item">
+                            <kbd>X</kbd>
+                            <span>ABS Toggle</span>
+                        </div>
+
+                        <div class="key-item">
+                            <kbd>R</kbd>
+                            <span>Reset</span>
+                        </div>
+
+                        <div class="key-item">
+                            <kbd>F</kbd>
+                            <span>Game Mode</span>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ABS COMPONENT LIVE MONITOR -->
+
+                <section class="component-live-panel">
+
+                    <div class="sidebar-heading">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                REAL-TIME MONITORING
+                            </p>
+
+                            <h2>
+                                ABS System Activity
+                            </h2>
+
+                        </div>
+
+                        <span class="component-count">
+                            LIVE
+                        </span>
+
+                    </div>
+
+
+                    <p class="component-live-description">
+                        Watch how information travels through
+                        the ABS system while you drive and brake.
+                    </p>
+
+
+                    <div class="live-component-flow">
+
+
+                        <div class="live-component" id="liveSensor">
+
+                            <span class="live-component-icon">◉</span>
+
+                            <strong>
+                                Wheel Sensors
+                            </strong>
+
+                            <small id="sensorStatus">
+                                STANDBY
+                            </small>
+
+                        </div>
+
+
+                        <div class="flow-arrow">→</div>
+
+
+                        <div class="live-component" id="liveECU">
+
+                            <span class="live-component-icon">▣</span>
+
+                            <strong>
+                                ABS Module
+                            </strong>
+
+                            <small id="ecuStatus">
+                                STANDBY
+                            </small>
+
+                        </div>
+
+
+                        <div class="flow-arrow">→</div>
+
+
+                        <div class="live-component" id="liveModulator">
+
+                            <span class="live-component-icon">⚙</span>
+
+                            <strong>
+                                Modulator
+                            </strong>
+
+                            <small id="modulatorStatus">
+                                STANDBY
+                            </small>
+
+                        </div>
+
+
+                        <div class="flow-arrow">→</div>
+
+
+                        <div class="live-component" id="liveBrakes">
+
+                            <span class="live-component-icon">◉</span>
+
+                            <strong>
+                                Brake Assembly
+                            </strong>
+
+                            <small id="brakesStatus">
+                                STANDBY
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="component-live-message"
+                        id="componentLiveMessage">
+
+                        Start driving to see the ABS components
+                        respond to vehicle conditions.
+
+                    </div>
+
+                </section>
+
+
+                <!-- TEST COMPARISON -->
+
+                <section class="test-results-panel">
+
+                    <div class="sidebar-heading">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                EXPERIMENT CENTER
+                            </p>
+
+                            <h2>
+                                ABS Performance Test
+                            </h2>
+
+                        </div>
+
+                        <span class="component-count">
+                            COMPARISON
+                        </span>
+
+                    </div>
+
+
+                    <p class="test-description">
+                        Run the same simulated braking experiment
+                        with ABS enabled and disabled. Compare
+                        the recorded results.
+                    </p>
+
+
+                    <div class="test-action-buttons">
+
+                        <button
+                            id="runAbsTest"
+                            class="test-button test-abs-button">
+
+                            <span>▶</span>
+                            RUN TEST WITH ABS
+
+                        </button>
+
+
+                        <button
+                            id="runNoAbsTest"
+                            class="test-button test-no-abs-button">
+
+                            <span>▶</span>
+                            RUN TEST WITHOUT ABS
+
+                        </button>
+
+                    </div>
+
+
+                    <div id="testStatus" class="test-status">
+                        READY TO TEST
+                    </div>
+
+
+                    <!-- RESULTS TABLE -->
+
+                    <div class="test-table-wrapper">
+
+                        <table class="test-results-table">
+
+                            <thead>
+
+                                <tr>
+                                    <th>MEASUREMENT</th>
+                                    <th>ABS ON</th>
+                                    <th>ABS OFF</th>
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Stopping Distance</td>
+                                    <td id="absDistanceResult">—</td>
+                                    <td id="noAbsDistanceResult">—</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Stopping Time</td>
+                                    <td id="absTimeResult">—</td>
+                                    <td id="noAbsTimeResult">—</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Maximum Wheel Slip</td>
+                                    <td id="absSlipResult">—</td>
+                                    <td id="noAbsSlipResult">—</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Final Speed</td>
+                                    <td id="absFinalSpeedResult">—</td>
+                                    <td id="noAbsFinalSpeedResult">—</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <div
+                        class="test-result-summary"
+                        id="testResultSummary">
+
+                        Complete both tests to see the performance
+                        comparison and experiment conclusion.
+
+                    </div>
+
+
+                    <button
+                        id="clearTestResults"
+                        class="game-reset-button">
+
+                        ↻ CLEAR RESULTS
+
+                    </button>
+
+                </section>
+
+            </section>
+
+
+            <!-- RIGHT SIDEBAR -->
+
+            <aside class="game-sidebar">
+
+
+                <!-- COMPONENT EXPLORER -->
+
+                <section class="component-panel">
+
+                    <div class="sidebar-heading">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                UNDER THE HOOD
+                            </p>
+
+                            <h2>
+                                ABS Components
+                            </h2>
+
+                        </div>
+
+                        <span class="component-count">
+                            04 PARTS
+                        </span>
+
+                    </div>
+
+
+                    <div class="component-list">
+
+
+                        <button
+                            class="component-card"
+                            data-component="sensor">
+
+                            <div class="component-symbol">
+                                <span>01</span>
+                            </div>
+
+                            <div class="component-info">
+
+                                <strong>
+                                    Wheel Speed Sensor
+                                </strong>
+
+                                <small>
+                                    Monitors wheel rotation
+                                </small>
+
+                            </div>
+
+                            <span class="component-arrow">
+                                ›
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            class="component-card"
+                            data-component="ecu">
+
+                            <div class="component-symbol">
+                                <span>02</span>
+                            </div>
+
+                            <div class="component-info">
+
+                                <strong>
+                                    ABS Control Module
+                                </strong>
+
+                                <small>
+                                    Processes sensor information
+                                </small>
+
+                            </div>
+
+                            <span class="component-arrow">
+                                ›
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            class="component-card"
+                            data-component="modulator">
+
+                            <div class="component-symbol">
+                                <span>03</span>
+                            </div>
+
+                            <div class="component-info">
+
+                                <strong>
+                                    Hydraulic Modulator
+                                </strong>
+
+                                <small>
+                                    Regulates brake pressure
+                                </small>
+
+                            </div>
+
+                            <span class="component-arrow">
+                                ›
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            class="component-card"
+                            data-component="brakes">
+
+                            <div class="component-symbol">
+                                <span>04</span>
+                            </div>
+
+                            <div class="component-info">
+
+                                <strong>
+                                    Brake Caliper & Rotor
+                                </strong>
+
+                                <small>
+                                    Creates braking force
+                                </small>
+
+                            </div>
+
+                            <span class="component-arrow">
+                                ›
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- COMPONENT INFORMATION -->
+
+                    <div
+                        class="component-detail"
+                        id="componentDetail">
+
+                        <span class="detail-label">
+                            COMPONENT INFORMATION
+                        </span>
+
+                        <h3 id="componentName">
+                            Explore ABS Components
+                        </h3>
+
+                        <p id="componentDescription">
+                            Select any component above to learn
+                            how it contributes to the ABS system.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ABS RESPONSE -->
+
+                <section class="system-panel">
+
+                    <div class="sidebar-heading">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                LIVE SYSTEM
+                            </p>
+
+                            <h2>
+                                ABS Response
+                            </h2>
+
+                        </div>
+
+                        <span
+                            id="valveState"
+                            class="system-pill">
+
+                            READY
+
+                        </span>
+
+                    </div>
+
+
+                    <h3 id="systemMessage">
+                        System is ready
+                    </h3>
+
+                    <p id="systemExplanation">
+                        Adjust the accelerator and brake to
+                        begin the simulation.
+                    </p>
+
+
+                    <div class="abs-cycle">
+
+                        <div
+                            class="cycle-step"
+                            id="releaseStep">
+
+                            RELEASE
+
+                        </div>
+
+                        <div
+                            class="cycle-step"
+                            id="holdStep">
+
+                            HOLD
+
+                        </div>
+
+                        <div
+                            class="cycle-step"
+                            id="buildStep">
+
+                            BUILD
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="cycle-progress">
+                        <div id="cycleFill"></div>
+                    </div>
+
+                </section>
+
+
+                <!-- LEARNING TIP -->
+
+                <section class="learning-panel">
+
+                    <span class="learning-icon">
+                        ⓘ
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            SIMULATION TIP
+                        </strong>
+
+                        <p>
+                            Compare braking with ABS enabled
+                            and disabled to understand how
+                            the system helps prevent wheel lock.
+                        </p>
+
+                    </div>
+
+                </section>
+
+            </aside>
+
+        </main>
+
+    </section>
+
+
+    <!-- =========================================
+         AUTOMATIC TEST RESULTS POPUP
+    ========================================== -->
+
+    <div
+        id="testResultPopup"
+        class="test-result-popup hidden">
+
+        <div class="test-result-modal">
+
+
+            <div class="result-modal-header">
+
+                <span class="result-eyebrow">
+                    BRAKEWISE TEST COMPLETE
+                </span>
+
+                <h2 id="popupTestTitle">
+                    ABS ON TEST RESULTS
+                </h2>
+
+                <p>
+                    Your simulation has finished. Review your results.
+                </p>
+
+            </div>
+
+
+            <div class="popup-result-grid">
+
+
+                <div class="popup-result-card">
+
+                    <span>
+                        STOPPING DISTANCE
+                    </span>
+
+                    <strong id="popupDistance">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="popup-result-card">
+
+                    <span>
+                        TOTAL DISTANCE SINCE 100 KM/H
+                    </span>
+
+                    <strong id="popupTotalDistance">
+                        0.0 m
+                    </strong>
+
+                </div>
+
+
+                <div class="popup-result-card">
+
+                    <span>
+                        STOPPING TIME
+                    </span>
+
+                    <strong id="popupTime">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="popup-result-card">
+
+                    <span>
+                        MAXIMUM WHEEL SLIP
+                    </span>
+
+                    <strong id="popupSlip">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="popup-result-card">
+
+                    <span>
+                        FINAL SPEED
+                    </span>
+
+                    <strong id="popupFinalSpeed">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="popup-result-actions">
+
+                <button
+                    id="submitTestResults"
+                    class="submit-result-button">
+
+                    SUBMIT RESULTS
+
+                </button>
+
+
+                <button
+                    id="discardTestResults"
+                    class="discard-result-button">
+
+                    DISCARD RESULTS
+
+                </button>
+
+            </div>
+
+
+            <p class="popup-footer">
+                Results will only be saved after you submit them.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <!-- Existing simulator JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- React application and Three.js car showcase -->
+    <script type="module" src="/src/main.jsx"></script>
+
+</body>
+
+</html>
